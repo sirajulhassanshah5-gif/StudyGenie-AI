@@ -1,9 +1,34 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme';
 
 export const ThemeToggle: React.FC = () => {
   const { isDark, toggleTheme } = useTheme();
+=======
+import React, { useEffect, useState } from 'react';
+import { Sun, Moon } from 'lucide-react';
+
+export const ThemeToggle: React.FC = () => {
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark') ||
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark((prev) => !prev);
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
 
   return (
     <button

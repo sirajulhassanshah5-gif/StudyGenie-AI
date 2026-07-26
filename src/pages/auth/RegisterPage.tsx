@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { useNavigate, Link } from 'react-router-dom';
+=======
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
 import { Mail, Lock, User, Eye, EyeOff, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { Input } from '../../components/common/Input';
 import { Button } from '../../components/common/Button';
 import { SocialAuthButtons } from '../../components/auth/SocialAuthButtons';
+<<<<<<< HEAD
 import { useAuth } from '../../context/AuthContext';
 
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
+=======
+
+export interface RegisterPageProps {
+  onSwitchToLogin?: () => void;
+}
+
+export const RegisterPage: React.FC<RegisterPageProps> = ({ onSwitchToLogin }) => {
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -58,7 +70,11 @@ export const RegisterPage: React.FC = () => {
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(val)) {
+<<<<<<< HEAD
       setEmailError('Please enter a valid email.');
+=======
+      setEmailError('Please enter a valid email (e.g. alex@university.edu).');
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
       return false;
     }
     setEmailError('');
@@ -112,6 +128,7 @@ export const RegisterPage: React.FC = () => {
 
     setIsLoading(true);
 
+<<<<<<< HEAD
     setTimeout(() => {
       setIsLoading(false);
       setRegisterSuccess(true);
@@ -120,6 +137,13 @@ export const RegisterPage: React.FC = () => {
         navigate('/dashboard');
       }, 1000);
     }, 1200);
+=======
+    // Simulate API registration request
+    setTimeout(() => {
+      setIsLoading(false);
+      setRegisterSuccess(true);
+    }, 1800);
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
   };
 
   return (
@@ -131,8 +155,22 @@ export const RegisterPage: React.FC = () => {
           </div>
           <h3 className="text-lg font-bold text-white">Registration Successful!</h3>
           <p className="text-xs text-slate-300">
+<<<<<<< HEAD
             Welcome to StudyGenie AI, <span className="font-semibold text-emerald-400">{fullName}</span>! Your account has been created. Redirecting to dashboard...
           </p>
+=======
+            Welcome to StudyGenie AI, <span className="font-semibold text-emerald-400">{fullName}</span>! Your account has been created.
+          </p>
+          <Button
+            type="button"
+            variant="outline"
+            fullWidth
+            onClick={onSwitchToLogin}
+            className="mt-2"
+          >
+            Proceed to Sign In
+          </Button>
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
         </div>
       ) : (
         <>
@@ -296,12 +334,23 @@ export const RegisterPage: React.FC = () => {
           {/* Switch to Login */}
           <p className="text-center text-xs text-slate-400 pt-2">
             Already have an account?{' '}
+<<<<<<< HEAD
             <Link
               to="/login"
               className="text-indigo-400 hover:text-indigo-300 font-semibold underline underline-offset-4 cursor-pointer"
             >
               Sign in
             </Link>
+=======
+            <button
+              type="button"
+              id="switch-to-login-btn"
+              onClick={onSwitchToLogin}
+              className="text-indigo-400 hover:text-indigo-300 font-semibold underline underline-offset-4 cursor-pointer"
+            >
+              Sign in
+            </button>
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
           </p>
         </>
       )}

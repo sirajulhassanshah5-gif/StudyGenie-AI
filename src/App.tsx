@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -141,6 +142,33 @@ function App() {
         <AppRoutes />
       </BrowserRouter>
     </AuthProvider>
+=======
+import { useState } from 'react';
+import { AuthLayout } from './components/auth/AuthLayout';
+import { LoginPage } from './pages/auth/LoginPage';
+import { RegisterPage } from './pages/auth/RegisterPage';
+
+type AuthView = 'login' | 'register';
+
+function App() {
+  const [view, setView] = useState<AuthView>('login');
+
+  return (
+    <AuthLayout
+      title={view === 'login' ? 'Welcome back' : 'Create your account'}
+      subtitle={
+        view === 'login'
+          ? 'Sign in to continue your study journey with AI.'
+          : 'Start your AI-powered learning adventure for free.'
+      }
+    >
+      {view === 'login' ? (
+        <LoginPage onSwitchToRegister={() => setView('register')} />
+      ) : (
+        <RegisterPage onSwitchToLogin={() => setView('login')} />
+      )}
+    </AuthLayout>
+>>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
   );
 }
 
