@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Tailwind CSS v4 Class-based Dark Mode Variant */
+@variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   StudyGenie AI — Global Styles & Animations
+   ============================================ */
+
+/* Custom fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fadeIn {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased min-h-screen font-sans bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300;
+  }
+
+  /* Custom checkbox styling */
+  input[type="checkbox"] {
+    @apply accent-indigo-600;
+  }
+}
