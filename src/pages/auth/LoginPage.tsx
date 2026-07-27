@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import { useNavigate, Link } from 'react-router-dom';
-=======
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
 import { Mail, Lock, Eye, EyeOff, CheckCircle2 } from 'lucide-react';
 import { Input } from '../../components/common/Input';
 import { Button } from '../../components/common/Button';
 import { SocialAuthButtons } from '../../components/auth/SocialAuthButtons';
-<<<<<<< HEAD
 import { useAuth } from '../../context/AuthContext';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
   
-=======
-
-export interface LoginPageProps {
-  onSwitchToRegister?: () => void;
-}
-
-export const LoginPage: React.FC<LoginPageProps> = ({ onSwitchToRegister }) => {
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -38,11 +26,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onSwitchToRegister }) => {
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
-<<<<<<< HEAD
       setEmailError('Please enter a valid email address.');
-=======
-      setEmailError('Please enter a valid email address (e.g. name@example.com).');
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
       return false;
     }
     setEmailError('');
@@ -85,7 +69,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onSwitchToRegister }) => {
 
     setIsLoading(true);
 
-<<<<<<< HEAD
     setTimeout(() => {
       setIsLoading(false);
       setLoginSuccess(true);
@@ -94,13 +77,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onSwitchToRegister }) => {
         navigate('/dashboard');
       }, 500);
     }, 1000);
-=======
-    // Simulate API network request
-    setTimeout(() => {
-      setIsLoading(false);
-      setLoginSuccess(true);
-    }, 1500);
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
   };
 
   return (
@@ -108,11 +84,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onSwitchToRegister }) => {
       {loginSuccess && (
         <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2.5 animate-fadeIn">
           <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
-<<<<<<< HEAD
           <span>Login successful! Redirecting to your Dashboard...</span>
-=======
-          <span>Login successful! Welcome back to StudyGenie AI.</span>
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
         </div>
       )}
 
@@ -207,23 +179,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onSwitchToRegister }) => {
       {/* Switch to Register */}
       <p className="text-center text-xs text-slate-400 pt-2">
         Don&apos;t have an account?{' '}
-<<<<<<< HEAD
         <Link
           to="/register"
           className="text-indigo-400 hover:text-indigo-300 font-semibold underline underline-offset-4 cursor-pointer"
         >
           Create free account
         </Link>
-=======
-        <button
-          type="button"
-          id="switch-to-register-btn"
-          onClick={onSwitchToRegister}
-          className="text-indigo-400 hover:text-indigo-300 font-semibold underline underline-offset-4 cursor-pointer"
-        >
-          Create free account
-        </button>
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
       </p>
     </div>
   );

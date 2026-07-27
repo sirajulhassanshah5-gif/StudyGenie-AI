@@ -1,20 +1,13 @@
 @import "tailwindcss";
 
-<<<<<<< HEAD
 /* Tailwind CSS v4 Class-based Dark Mode Variant */
 @variant dark (&:where(.dark, .dark *));
 
-=======
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
 /* ============================================
    StudyGenie AI — Global Styles & Animations
    ============================================ */
 
-<<<<<<< HEAD
 /* Custom fade-in animation */
-=======
-/* Custom fade-in animation for success alerts */
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -30,7 +23,6 @@
   animation: fadeIn 0.35s ease-out forwards;
 }
 
-<<<<<<< HEAD
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -38,17 +30,6 @@
 
   body {
     @apply antialiased min-h-screen font-sans bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300;
-=======
-/* Dark mode is the default for this app. 
-   The ThemeToggle component adds/removes the 'dark' class on <html>. */
-@layer base {
-  html {
-    @apply scroll-smooth;
-  }
-
-  body {
-    @apply antialiased bg-slate-950 text-slate-100 min-h-screen font-sans;
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
   }
 
   /* Custom checkbox styling */

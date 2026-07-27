@@ -10,14 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "lucide-react": "^1.26.0",
     "react": "^19.2.7",
-<<<<<<< HEAD
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.1.5"
-=======
-    "react-dom": "^19.2.7"
->>>>>>> 170f2920a479c94cf3366ac1d149dde6b963c63f
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
