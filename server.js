@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { config } from './server/config/index.js';
 import healthRoutes from './server/routes/healthRoutes.js';
+import noteRoutes from './server/routes/noteRoutes.js';
 import { requestLogger, errorHandler } from './server/middleware/index.js';
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(requestLogger);
 
 // API Routes
 app.use('/api', healthRoutes);
+app.use('/api', noteRoutes);
 
 // Root Endpoint
 app.get('/', (req, res) => {
