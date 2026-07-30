@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Sparkles, Clock, ArrowRight, Tag } from 'lucide-react';
+import { BookOpen, Sparkles, Clock, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const RecentNotes: React.FC = () => {

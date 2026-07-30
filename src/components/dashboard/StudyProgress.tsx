@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, BookOpen, Brain, Zap } from 'lucide-react';
+import { TrendingUp, Brain, Zap } from 'lucide-react';
 
 export const StudyProgress: React.FC = () => {
   const subjects = [

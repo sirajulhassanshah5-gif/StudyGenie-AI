@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Settings, User, Bell, Moon, Sun, Shield, Bot, Save, CheckCircle2 } from 'lucide-react';
+import { Settings, User, Bell, Moon, Sun, Bot, Save, CheckCircle2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../hooks/useTheme';
 import { Button } from '../components/common/Button';

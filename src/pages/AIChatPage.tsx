@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bot, Send, User, Sparkles, Code, HelpCircle, Lightbulb, RefreshCw } from 'lucide-react';
+import { Bot, Send, User, Sparkles } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 interface Message {

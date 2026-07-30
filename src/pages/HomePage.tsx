@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Sparkles, ArrowRight, Bot, BookOpen, HelpCircle, Layers, Calendar, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Sparkles, ArrowRight, Bot, BookOpen, HelpCircle, Layers } from 'lucide-react';
 import { Button } from '../components/common/Button';
 import { useAuth } from '../context/AuthContext';
 

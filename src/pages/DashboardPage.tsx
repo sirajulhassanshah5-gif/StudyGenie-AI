@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Brain, Clock, Zap, BookOpen, Award } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { TodayGoal } from '../components/dashboard/TodayGoal';
 import { StudyProgress } from '../components/dashboard/StudyProgress';
 import { RecentNotes } from '../components/dashboard/RecentNotes';

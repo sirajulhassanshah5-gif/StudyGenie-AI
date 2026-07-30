@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, RotateCw, ArrowLeft, ArrowRight, Sparkles, Check, X } from 'lucide-react';
+import { Layers, RotateCw, ArrowLeft, ArrowRight, Check, X } from 'lucide-react';
 import { Button } from '../components/common/Button';
 
 export const FlashcardsPage: React.FC = () => {

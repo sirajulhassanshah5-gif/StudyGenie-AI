@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { BookOpen, Plus, Search, Sparkles, Tag, FileText, Trash2, Edit3, Check } from 'lucide-react';
+import { BookOpen, Plus, Search, Sparkles, Trash2, Edit3 } from 'lucide-react';
 import { Button } from '../components/common/Button';
 
 export const NotesPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const [notes, setNotes] = useState([
+  const [notes] = useState([
     {
       id: '1',
       title: 'Neural Networks & Deep Learning',

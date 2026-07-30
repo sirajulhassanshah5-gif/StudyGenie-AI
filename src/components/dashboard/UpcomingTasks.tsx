@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, AlertCircle, CheckCircle, Clock } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export const UpcomingTasks: React.FC = () => {

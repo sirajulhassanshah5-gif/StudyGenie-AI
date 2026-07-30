@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, CheckCircle2, Clock, Award, Sparkles } from 'lucide-react';
+import { Target, CheckCircle2, Clock, Award } from 'lucide-react';
 
 export const TodayGoal: React.FC = () => {
   const goalPercentage = 75;
