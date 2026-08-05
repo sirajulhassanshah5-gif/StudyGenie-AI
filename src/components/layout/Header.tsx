@@ -9,7 +9,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenMobileSidebar }) => {
-  const { user, isAuthenticated } = useAuth();
+  const { profile, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
 
@@ -88,15 +88,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileSidebar }) => {
         <ThemeToggle />
 
         {/* Auth Links / Profile Avatar */}
-        {isAuthenticated && user ? (
+        {isAuthenticated && profile ? (
           <button 
             onClick={() => navigate('/settings')}
             className="flex items-center space-x-2 p-1 rounded-full hover:ring-2 hover:ring-indigo-500/50 transition-all"
             title="Account Settings"
           >
             <img
-              src={user.avatar}
-              alt={user.name}
+              src={profile.avatar}
+              alt={profile.name}
               className="w-8 h-8 rounded-full object-cover ring-2 ring-indigo-500/30"
             />
           </button>

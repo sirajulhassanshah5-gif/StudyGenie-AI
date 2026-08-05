@@ -1,34 +1,47 @@
 import axios from 'axios';
+import { supabase } from '../lib/supabaseClient';
 
-// Step 1: Create Axios instance with base URL configuration
+export interface ApiError {
+  message: string;
+  status?: number;
+  data?: any;
+}
+
+// 1. Create Axios instance with base URL configuration
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 seconds timeout
+  timeout: 10000,
 });
 
-// Step 2: Add Request Interceptor (Optional: e.g. attach authorization headers in future)
+// 2. Request Interceptor: Attach Supabase JWT Bearer Token to all API calls
 apiClient.interceptors.request.use(
-  (config) => {
-    // You can attach tokens here if needed
-    // const token = localStorage.getItem('token');
-    // if (token) config.headers.Authorization = `Bearer ${token}`;
+  async (config) => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session?.access_token) {
+        config.headers.Authorization = `Bearer ${session.access_token}`;
+      }
+    } catch {
+      // Ignore session retrieval error if unauthenticated
+    }
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-// Step 3: Add Response Interceptor for central error formatting
+// 3. Response Interceptor: Formats standardized response & global error handling
 apiClient.interceptors.response.use(
   (response) => response.data,
   (error) => {
-    const customError = {
-      message: error.response?.data?.message || error.message || 'An unexpected error occurred',
+    const apiError: ApiError = {
+      message: error.response?.data?.message || error.message || 'An unexpected server error occurred.',
       status: error.response?.status || 500,
+      data: error.response?.data,
     };
-    return Promise.reject(customError);
+    return Promise.reject(apiError);
   }
 );
 

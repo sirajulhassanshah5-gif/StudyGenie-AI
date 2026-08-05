@@ -8,7 +8,7 @@ import { QuickActions } from '../components/dashboard/QuickActions';
 import { useAuth } from '../context/AuthContext';
 
 export const DashboardPage: React.FC = () => {
-  const { user } = useAuth();
+  const { profile } = useAuth();
 
   return (
     <div className="space-y-8 animate-fadeIn">
@@ -21,7 +21,7 @@ export const DashboardPage: React.FC = () => {
             <span>AI Study Assistant Dashboard</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Welcome back, {user?.name.split(' ')[0] || 'Student'}! 👋
+            Welcome back, {profile?.name.split(' ')[0] || 'Student'}! 👋
           </h1>
           <p className="text-xs sm:text-sm text-slate-300">
             You've studied <strong>3.5 hours today</strong>. Your exam readiness index is up by 8%. Keep up the strong momentum!

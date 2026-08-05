@@ -9,12 +9,12 @@ interface Message {
 }
 
 export const AIChatPage: React.FC = () => {
-  const { user } = useAuth();
+  const { profile } = useAuth();
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: 'ai',
-      text: `Hello ${user?.name.split(' ')[0] || 'there'}! I'm your AI Study Tutor. Ask me any topic in Computer Science, Math, Physics, Chemistry, or upload your homework question!`,
+      text: `Hello ${profile?.name.split(' ')[0] || 'there'}! I'm your AI Study Tutor. Ask me any topic in Computer Science, Math, Physics, Chemistry, or upload your homework question!`,
       timestamp: 'Just now',
     },
   ]);

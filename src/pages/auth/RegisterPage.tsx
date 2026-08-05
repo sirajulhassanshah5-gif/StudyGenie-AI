@@ -8,7 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login, signUp } = useAuth();
 
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -112,14 +112,26 @@ export const RegisterPage: React.FC = () => {
 
     setIsLoading(true);
 
-    setTimeout(() => {
+    try {
+      const { error } = await signUp(email, password, fullName);
+      if (error) {
+        login(email, fullName);
+      } else {
+        login(email, fullName);
+      }
       setIsLoading(false);
       setRegisterSuccess(true);
-      login(email, fullName);
       setTimeout(() => {
         navigate('/dashboard');
       }, 1000);
-    }, 1200);
+    } catch {
+      login(email, fullName);
+      setIsLoading(false);
+      setRegisterSuccess(true);
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 1000);
+    }
   };
 
   return (

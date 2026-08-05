@@ -26,12 +26,12 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile }) => {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { profile, isAuthenticated, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate('/login');
   };
 
@@ -171,17 +171,17 @@ export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile })
           </button>
 
           {/* Profile snippet */}
-          {isAuthenticated && user ? (
+          {isAuthenticated && profile ? (
             <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/40 border border-slate-200/60 dark:border-slate-700/50">
               <div className="flex items-center space-x-3 overflow-hidden">
                 <img 
-                  src={user.avatar} 
-                  alt={user.name}
+                  src={profile.avatar} 
+                  alt={profile.name}
                   className="w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/40 flex-shrink-0"
                 />
                 <div className="truncate">
-                  <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 truncate">{user.name}</p>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">{user.role}</p>
+                  <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 truncate">{profile.name}</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate">{profile.role}</p>
                 </div>
               </div>
               <button

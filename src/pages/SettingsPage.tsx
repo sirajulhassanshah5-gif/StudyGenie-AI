@@ -5,12 +5,12 @@ import { useTheme } from '../hooks/useTheme';
 import { Button } from '../components/common/Button';
 
 export const SettingsPage: React.FC = () => {
-  const { user } = useAuth();
+  const { profile } = useAuth();
   const { theme, toggleTheme } = useTheme();
 
-  const [name, setName] = useState(user?.name || '');
-  const [email, setEmail] = useState(user?.email || '');
-  const [role, setRole] = useState(user?.role || '');
+  const [name, setName] = useState(profile?.name || '');
+  const [email, setEmail] = useState(profile?.email || '');
+  const [role, setRole] = useState(profile?.role || '');
   const [aiModel, setAiModel] = useState('StudyGenie Pro (Gemini 2.5)');
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [saved, setSaved] = useState(false);
