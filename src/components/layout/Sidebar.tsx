@@ -4,6 +4,7 @@ import {
   Home, 
   LayoutDashboard, 
   BookOpen, 
+  FileText,
   Bot, 
   HelpCircle, 
   Layers, 
@@ -38,8 +39,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile })
   const navItems = [
     { label: 'Home', path: '/', icon: Home },
     { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
+    { label: 'PDF Documents', path: '/documents', icon: FileText, highlight: true },
     { label: 'Notes', path: '/notes', icon: BookOpen },
-    { label: 'AI Chat', path: '/ai-chat', icon: Bot, highlight: true },
+    { label: 'AI Chat', path: '/ai-chat', icon: Bot },
     { label: 'Quiz', path: '/quiz', icon: HelpCircle },
     { label: 'Flashcards', path: '/flashcards', icon: Layers },
     { label: 'Planner', path: '/planner', icon: Calendar },

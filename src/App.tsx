@@ -8,6 +8,7 @@ import { AuthLayout } from './components/auth/AuthLayout';
 // Pages
 import { HomePage } from './pages/HomePage';
 import { DashboardPage } from './pages/DashboardPage';
+import { DocumentsPage } from './pages/DocumentsPage';
 import { NotesPage } from './pages/NotesPage';
 import { AIChatPage } from './pages/AIChatPage';
 import { QuizPage } from './pages/QuizPage';
@@ -75,6 +76,14 @@ const AppRoutes: React.FC = () => {
           element={
             <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="documents"
+          element={
+            <ProtectedRoute>
+              <DocumentsPage />
             </ProtectedRoute>
           }
         />

@@ -100,3 +100,20 @@ export interface Progress {
   created_at: string;
   updated_at: string;
 }
+
+export interface PdfDocument {
+  id: string;
+  user_id: string;
+  name: string;
+  file_path: string;
+  public_url: string;
+  size_bytes: number;
+  mime_type: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UploadPdfInput {
+  file: File;
+}
+
