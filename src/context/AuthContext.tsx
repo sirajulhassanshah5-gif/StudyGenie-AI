@@ -34,9 +34,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [demoUser, setDemoUser] = useState<UserProfile | null>(null);
 
   useEffect(() => {
+    // Timeout fallback: if Supabase getSession hangs (e.g. invalid credentials/no network),
+    // resolve loading after 5s so the app doesn't show a blank/infinite spinner.
+    const timeout = setTimeout(() => setLoading(false), 5000);
+
     supabase.auth.getSession().then(({ data: { session } }) => {
+      clearTimeout(timeout);
       setSession(session);
       setUser(session?.user ?? null);
+      setLoading(false);
+    }).catch(() => {
+      clearTimeout(timeout);
       setLoading(false);
     });
 
@@ -46,7 +54,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setLoading(false);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      clearTimeout(timeout);
+      subscription.unsubscribe();
+    };
   }, []);
 
   const login = (email = 'alex.rivera@studygenie.ai', name = 'Alex Rivera') => {
