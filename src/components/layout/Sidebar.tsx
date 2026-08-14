@@ -39,7 +39,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isMobileOpen, onCloseMobile })
   const navItems = [
     { label: 'Home', path: '/', icon: Home },
     { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
-    { label: 'PDF Documents', path: '/documents', icon: FileText, highlight: true },
+    { label: 'AI Summarizer', path: '/summary', icon: Sparkles, highlight: true },
+    { label: 'PDF Documents', path: '/documents', icon: FileText },
     { label: 'Notes', path: '/notes', icon: BookOpen },
     { label: 'AI Chat', path: '/ai-chat', icon: Bot },
     { label: 'Quiz', path: '/quiz', icon: HelpCircle },

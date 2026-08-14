@@ -15,6 +15,7 @@ import { QuizPage } from './pages/QuizPage';
 import { FlashcardsPage } from './pages/FlashcardsPage';
 import { PlannerPage } from './pages/PlannerPage';
 import { SettingsPage } from './pages/SettingsPage';
+import { SummaryPage } from './pages/SummaryPage';
 import { LoginPage } from './pages/auth/LoginPage';
 import { RegisterPage } from './pages/auth/RegisterPage';
 
@@ -93,6 +94,14 @@ const AppRoutes: React.FC = () => {
           element={
             <ProtectedRoute>
               <DashboardPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="summary"
+          element={
+            <ProtectedRoute>
+              <SummaryPage />
             </ProtectedRoute>
           }
         />

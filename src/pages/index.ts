@@ -11,4 +11,5 @@ export * from './QuizPage';
 export * from './FlashcardsPage';
 export * from './PlannerPage';
 export * from './SettingsPage';
+export * from './SummaryPage';
 
